@@ -1,0 +1,107 @@
+<style>
+  /* Hero Section */
+.hero-section {
+  background-color: #061a31;
+  color: #fff;
+  padding: 20px;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.h1-c {
+  margin: 0;
+  color: #fff;
+}
+
+.add-button {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #c2c2c2;
+}
+
+/* Table */
+.gym-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.gym-table th, .gym-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.gym-table th {
+  background-color: #f2f2f2;
+}
+
+.gym-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Action Buttons */
+.action-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.update-button {
+  background-color: #061a31;
+  color: white;
+}
+
+.delete-button {
+  background-color: #3c3a3a;
+  color: white;
+}
+
+.action-button:hover {
+  opacity: 0.8;
+}
+
+</style>
+<div class="hero-section">
+    <div class="hero-content">
+      <h1 class="h1-c"><strong>Trainer List(s)</strong></h1>
+      <button class="action-button add-button" [routerLink]="['/addcoach']" routerLinkActive="router-link-active">ADD</button>
+    </div>
+  </div>
+  <table class="gym-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+ 
+        <th>Phone</th>
+        <th>ACTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let coach  of coach">
+  
+        <td>{{ coach.coachId }}</td>
+        <td>{{ coach.coachName  }}</td>
+
+        <td>{{ coach.coachPhone }}</td>
+        <td>
+          <button class="action-button update-button" (click)="updatecoach(coach.coachId)">UPDATE</button>
+          <button class="action-button delete-button"  (click)="deletecoach(coach.coachId)">DELETE</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

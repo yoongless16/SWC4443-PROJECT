@@ -1,0 +1,83 @@
+<style>
+.update-form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.update-form-container h2 {
+  margin: 0 0 20px;
+  font-size: 24px;
+  color: #061a31;
+}
+
+.update-form-container form {
+  width: 100%;
+}
+
+.update-form-container label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.update-form-container input[type="text"],
+.update-form-container input[type="email"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.update-form-container button {
+  width: calc(100% - 20px);
+  padding: 12px 0;
+  background-color: #061a31;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.update-form-container button:hover {
+  background-color: #595f66;
+}
+
+.update-form-container button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+</style>
+<div class="update-form-container">
+    <h2>Update client</h2>
+    <form [formGroup]="customerForm" (ngSubmit)="updateCustomer()">
+      <div>
+        <label for="custName">Name:</label>
+        <input type="text" formControlName="custName" id="custName" />
+      </div>
+      <div>
+        <label for="custEmail">Email:</label>
+        <input type="email" formControlName="custEmail" id="custEmail" />
+      </div>
+      <div>
+        <label for="custPhone">Phone:</label>
+        <input type="text" formControlName="custPhone" id="custPhone" />
+      </div>
+
+      <div>
+        <button type="submit" [disabled]="!customerForm.valid">Update</button>
+      </div>
+    </form>
+</div>

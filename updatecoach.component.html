@@ -1,0 +1,74 @@
+<style>
+  .update-form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.update-form-container h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #061a31;
+}
+
+.update-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-form-container label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.update-form-container input[type="text"] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.update-form-container button {
+  padding: 12px 24px;
+  background-color: #061a31;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.update-form-container button:hover {
+  background-color: #497db5;
+}
+
+.update-form-container button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+</style>
+<div class="update-form-container">
+    <h2>Update coach</h2>
+    <form [formGroup]="coachForm" (ngSubmit)="updatecoach()">
+      <div>
+        <label for="coachName">Name:</label>
+        <input type="text" formControlName="coachName" id="coachName" />
+      </div>
+      <div>
+        <label for="coachPhone">Phone:</label>
+        <input type="text" formControlName="coachPhone" id="coachPhone" />
+      </div>
+
+      <div>
+        <button type="submit" [disabled]="!coachForm.valid">Update</button>
+      </div>
+    </form>
+</div>
